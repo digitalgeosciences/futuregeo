@@ -1,4 +1,4 @@
-# FutureGeo – Geoscience & the SDGs
+# FutureGeo – Geoscience & the SDGs (Under review)
 
 An interactive single‑page application showcasing how geoscientists contribute to the UN Sustainable Development Goals, including a resource library of initiatives, data hubs, and collaborations.
 
