@@ -80,11 +80,11 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        aurora: "aurora 16s ease-in-out infinite",
-        float: "float 12s ease-in-out infinite",
-        "pulse-soft": "pulse-soft 8s ease-in-out infinite",
-        "drift-slow": "drift 24s linear infinite",
-        "circle-expand": "circle-expand 18s linear infinite",
+        aurora: "aurora 12s ease-in-out infinite",
+        float: "float 9s ease-in-out infinite",
+        "pulse-soft": "pulse-soft 6s ease-in-out infinite",
+        "drift-slow": "drift 18s linear infinite",
+        "circle-expand": "circle-expand 14s linear infinite",
       },
       keyframes: {
         "accordion-down": {

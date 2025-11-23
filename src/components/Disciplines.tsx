@@ -122,7 +122,7 @@ export const Disciplines = () => {
     <section id="geoscience-specializations" className="bg-background py-16">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">Geoscience Specializations</h2>
+          <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">Geosciences</h2>
           <p className="mt-4 text-sm text-muted-foreground">
             Click any field to explore how it contributes to solving future challenges. Let us know if you want to add more.
           </p>

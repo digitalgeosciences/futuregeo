@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ExternalLink, FileDown, Linkedin, Link as LinkIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Footer } from "@/components/Footer";
-import { sdgPosts, formatDate, ReactMarkdown } from "@/lib/sdgPosts";
+import { sdgPosts, formatDate, getInitials, ReactMarkdown } from "@/lib/sdgPosts";
 
 const formatTagLabel = (tag: string) =>
   tag
@@ -69,7 +69,31 @@ const InsightDetail = () => {
   return (
     <div className="min-h-screen bg-secondary/10">
       <header className="border-b bg-background">
-        <div className="container mx-auto space-y-4 px-4 py-8">
+        <div className="border-b bg-background/95 backdrop-blur">
+          <div className="container mx-auto flex items-center justify-between px-4 py-3 text-sm">
+            <Link
+              to="/"
+              className="font-semibold tracking-wide text-foreground transition-colors hover:text-primary"
+            >
+              GEOSCIENCES for the future
+            </Link>
+            <nav className="flex items-center gap-3">
+              <Link
+                to="/"
+                className="rounded-full bg-primary/5 px-3 py-1 font-medium text-foreground transition-colors hover:bg-primary/10"
+              >
+                Home
+              </Link>
+              <Link
+                to="/insights"
+                className="rounded-full bg-primary/5 px-3 py-1 font-medium text-foreground transition-colors hover:bg-primary/10"
+              >
+                Insights archive
+              </Link>
+            </nav>
+          </div>
+        </div>
+        <div className="container mx-auto space-y-3 px-4 py-6">
           <Link
             to="/insights"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -81,13 +105,31 @@ const InsightDetail = () => {
             <p className="text-xs font-semibold uppercase tracking-wide text-primary">
               FutureGeo insight
             </p>
-            <h1 className="text-4xl font-bold text-foreground md:text-5xl">
+            <h1 className="text-3xl font-bold text-foreground md:text-4xl">
               {post.title}
             </h1>
             <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-muted-foreground">
               <div className="flex flex-wrap items-center gap-3">
-                {post.author && <span>By {post.author}</span>}
-                {formattedDate && <span>• {formattedDate}</span>}
+                {(post.author || post.authorImage || formattedDate) && (
+                  <div className="flex items-center gap-3">
+                    {post.authorImage ? (
+                      <img
+                        src={post.authorImage}
+                        alt={post.author ?? "Author"}
+                        className="h-10 w-10 rounded-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary">
+                        {getInitials(post.author)}
+                      </div>
+                    )}
+                    <div className="flex flex-wrap items-center gap-2">
+                      {post.author && <span className="font-semibold text-foreground">By {post.author}</span>}
+                      {formattedDate && <span className="text-muted-foreground">• {formattedDate}</span>}
+                    </div>
+                  </div>
+                )}
                 {post.isExternal && post.link && (
                   <a
                     href={post.link}
@@ -144,9 +186,9 @@ const InsightDetail = () => {
         </div>
       </header>
 
-      <main className="container mx-auto max-w-4xl px-4 py-10">
-        <Card className="border border-border/80 bg-card/80 p-6 text-muted-foreground">
-          <div className="prose prose-lg max-w-none">
+      <main className="container mx-auto max-w-4xl px-4 py-8">
+        <Card className="border border-border/80 bg-card/80 p-5 text-muted-foreground">
+          <div className="prose max-w-none">
             <ReactMarkdown>{post.content}</ReactMarkdown>
           </div>
         </Card>

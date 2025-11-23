@@ -38,14 +38,14 @@ const Index = () => {
             onClick={() => scrollToSection("geoscience-specializations")}
             className="rounded-full bg-primary/5 px-3 py-1 font-medium text-foreground transition-colors hover:bg-primary/10"
           >
-            Geoscience specializations
+            Geosciences
           </button>
           <button
             type="button"
             onClick={() => scrollToSection("futuregeo-insights")}
             className="rounded-full bg-primary/5 px-3 py-1 font-medium text-foreground transition-colors hover:bg-primary/10"
           >
-            FutureGeo insights
+            Insights
           </button>
         </div>
       </div>

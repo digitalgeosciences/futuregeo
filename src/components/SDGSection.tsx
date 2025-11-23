@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRightCircle, ArrowRight, ExternalLink } from "lucide-react";
 import { Card } from "./ui/card";
+import { Button } from "./ui/button";
 import { getFeaturedPosts, getPreview, formatDate, getInitials } from "@/lib/sdgPosts";
 
 export const SDGSection = () => {
-  const posts = getFeaturedPosts(3);
+  const posts = getFeaturedPosts(4);
 
   if (posts.length === 0) {
     return null;
@@ -19,12 +20,11 @@ export const SDGSection = () => {
             FutureGeo insights
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
-            Short reflections and stories on how geoscience supports a sustainable,
-            equitable future, curated from FutureGeo and related writing.
+            Short reflections and stories on how geoscience supports a sustainable future.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {posts.map((post) => {
             const formattedDate = formatDate(post.date);
 
@@ -122,14 +122,13 @@ export const SDGSection = () => {
           })}
         </div>
 
-        <div className="mt-10 text-center text-base text-muted-foreground">
-          <Link
-            to="/insights"
-            className="inline-flex items-center gap-2 text-base font-semibold text-primary hover:underline"
-          >
-            View more FutureGeo insights
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+        <div className="mt-10 flex justify-center">
+          <Button asChild size="lg" className="inline-flex items-center gap-2 text-base font-semibold">
+            <Link to="/insights">
+              View more FutureGeo insights
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

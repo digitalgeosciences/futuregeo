@@ -65,14 +65,28 @@ const InsightsArchive = () => {
   return (
     <div className="min-h-screen bg-secondary/10">
       <header className="border-b bg-background">
+        <div className="border-b bg-background/95 backdrop-blur">
+          <div className="container mx-auto flex items-center justify-between px-4 py-3 text-sm">
+            <Link
+              to="/"
+              className="font-semibold tracking-wide text-foreground transition-colors hover:text-primary"
+            >
+              GEOSCIENCES for the future
+            </Link>
+            <nav className="flex items-center gap-3">
+              <Link
+                to="/"
+                className="rounded-full bg-primary/5 px-3 py-1 font-medium text-foreground transition-colors hover:bg-primary/10"
+              >
+                Home
+              </Link>
+              <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary shadow-sm">
+                Insights archive
+              </span>
+            </nav>
+          </div>
+        </div>
         <div className="container mx-auto space-y-4 px-4 py-8">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Link>
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-wide text-primary">
               Insights archive
@@ -82,8 +96,6 @@ const InsightsArchive = () => {
             </h1>
             <p className="max-w-3xl text-lg text-muted-foreground">
               Browse all posts and external articles collected for FutureGeo.
-              These reflections highlight how geoscience connects to clean water,
-              energy transitions, risk reduction, critical resources, and more.
             </p>
           </div>
         </div>

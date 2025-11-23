@@ -8,7 +8,6 @@ featured: "true"
 tags: "futuregeo, website, overview, education"
 authorImage: "https://avatars.githubusercontent.com/qubalee"
 ---
-
 ![Alt text describing the graphic](https://raw.githubusercontent.com/digitalgeosciences/FutureGeo/main/public/images/writings/futuregeo.png)
 
 FutureGeo is a lightweight, fast site designed to answer a simple question:
@@ -16,8 +15,6 @@ FutureGeo is a lightweight, fast site designed to answer a simple question:
 > *Where does geoscience make a real difference to people and planet?*
 
 Rather than acting as a traditional blog or static brochure, FutureGeo is structured as a small, focused map of ideas that teachers, students, and practitioners can reuse.
-
----
 
 ## How the site is organised
 
@@ -32,7 +29,6 @@ Each insight is stored as a simple markdown file with a small amount of metadata
 - transparent, so that future contributors can see exactly how a post is written and rendered  
 
 ## What FutureGeo is for
-
 FutureGeo is not meant to be a comprehensive catalogue of everything happening in geoscience. Instead, it aims to:
 
 - highlight **clear, concrete stories** where geoscience knowledge supports the UN Sustainable Development Goals  
