@@ -107,6 +107,8 @@ const sdgGoals = [
 ];
 
 export const SDGSection = () => {
+  const baseUrl = import.meta.env.BASE_URL.replace(/\/+$/, "");
+
   return (
     <section className="py-16 bg-secondary/20">
       <div className="container mx-auto px-4">
@@ -136,7 +138,7 @@ export const SDGSection = () => {
                   style={{ backgroundColor: goal.color }}
                 ></div>
                 <img
-                  src={`/images/sdg/${goal.number}.png`}
+                  src={`${baseUrl}/images/sdg/${goal.number}.png`}
                   alt={`SDG ${goal.number}: ${goal.title}`}
                   className="w-full h-auto object-contain relative z-10"
                   loading="lazy"
@@ -151,7 +153,7 @@ export const SDGSection = () => {
             to="/geosciences-sdgs"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-foreground font-semibold"
           >
-            Learn More about Geosciences and the SDGs (a new page compiling link to every initiative)
+            Learn More about Geosciences and the SDGs
             <span className="text-primary group-hover:text-primary-foreground">→</span>
           </Link>
         </div>

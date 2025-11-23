@@ -17,7 +17,9 @@ const GeosciencesSDGs = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/data/geosciences-sdgs.json", { cache: "no-store" })
+    const baseUrl = import.meta.env.BASE_URL.replace(/\/+$/, "");
+
+    fetch(`${baseUrl}/data/geosciences-sdgs.json`, { cache: "no-store" })
       .then((res) => {
         if (!res.ok) {
           throw new Error("Unable to load initiatives.");
