@@ -3,12 +3,12 @@ title: "Inside the FutureGeo website"
 description: "An overview of the FutureGeo site structure and purpose."
 author: "Abdullah Alqubalee"
 date: "2025-11-23"
-image: "https://raw.githubusercontent.com/digitalgeosciences/FutureGeo/main/public/images/writings/futuregeo.png"
+image: "/images/writings/futuregeo.png"
 featured: "true"
 tags: "futuregeo, website, overview, education"
 authorImage: "https://avatars.githubusercontent.com/qubalee"
 ---
-![Alt text describing the graphic](https://raw.githubusercontent.com/digitalgeosciences/FutureGeo/main/public/images/writings/futuregeo.png)
+![Alt text describing the graphic](/images/writings/futuregeo.png)
 
 FutureGeo is a lightweight, fast site designed to answer a simple question:
 
