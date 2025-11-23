@@ -1,7 +1,11 @@
 import { ArrowDown } from "lucide-react";
 import { Button } from "./ui/button";
 
-export const Hero = () => {
+type HeroProps = {
+  onExplore?: () => void;
+};
+
+export const Hero = ({ onExplore }: HeroProps) => {
   const biosphereOrbs = [
     { top: "18%", left: "8%", size: "24rem", gradient: "from-emerald-300/60 via-lime-200/30 to-transparent" },
     { top: "35%", right: "10%", size: "18rem", gradient: "from-cyan-300/50 via-sky-400/30 to-transparent" },
@@ -14,8 +18,12 @@ export const Hero = () => {
     { size: "60rem", delay: "6s", border: "border-primary/20" },
   ];
 
-  const scrollToContent = () => {
-    document.getElementById("geoscience-impact")?.scrollIntoView({ behavior: "smooth" });
+  const handleExploreClick = () => {
+    if (onExplore) {
+      onExplore();
+    } else {
+      document.getElementById("geoscience-impact")?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -58,14 +66,14 @@ export const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="animate-fade-in">
-          <h1 className="font-future text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-foreground tracking-[0.12em]">
-            <span className="text-primary drop-shadow-lg">GEOSCIENCES</span> FOR THE FUTURE
+          <h1 className="font-future text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-foreground tracking-[0.12em]">
+            <span className="text-primary drop-shadow-lg">GEOSCIENCES</span> for the future
           </h1>
           <p className="font-future text-lg md:text-xl mb-10 max-w-3xl mx-auto text-muted-foreground leading-relaxed tracking-wide">
             Geoscientists play a crucial role in addressing society's future challenges through the United Nations Sustainable Development Goals
           </p>
           <Button
-            onClick={scrollToContent}
+            onClick={handleExploreClick}
             size="lg"
             className="font-future tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 text-lg px-8 py-6"
           >

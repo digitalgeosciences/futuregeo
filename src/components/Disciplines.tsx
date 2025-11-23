@@ -2,12 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Papa from "papaparse";
 import { Sparkles, FlaskConical, Activity, BatteryCharging, CloudSun, Users, Cpu } from "lucide-react";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "./ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { Card } from "./ui/card";
 
 interface DisciplineField {
@@ -113,9 +108,9 @@ export const Disciplines = () => {
 
   if (loading) {
     return (
-      <section className="py-16">
+      <section id="geoscience-specializations" className="py-16">
         <div className="container mx-auto px-4 text-center">
-          <div className="animate-pulse text-primary text-xl">Loading specializations...</div>
+          <div className="animate-pulse text-xl text-primary">Loading specializations...</div>
         </div>
       </section>
     );
@@ -124,22 +119,22 @@ export const Disciplines = () => {
   const categories = Object.entries(disciplines);
 
   return (
-    <section className="py-16 bg-background">
+    <section id="geoscience-specializations" className="bg-background py-16">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Geoscience Specializations</h2>
-          <p className="text-muted-foreground text-sm mt-4">
-            Click any field to explore how it contributes to solving future challenges
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">Geoscience Specializations</h2>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Click any field to explore how it contributes to solving future challenges. Let us know if you want to add more.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
+        <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2 xl:grid-cols-3">
           {categories.map(([category, data]) => {
             const Icon = getCategoryIcon(category);
 
             return (
-              <Card key={category} className="border overflow-hidden hover:shadow-lg transition-all duration-300">
-                <div className="p-6 border-b bg-primary/5">
+              <Card key={category} className="overflow-hidden border transition-all duration-300 hover:shadow-lg">
+                <div className="border-b bg-primary/5 p-6">
                   <div className="flex items-center gap-3">
                     <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
                       <Icon className="h-5 w-5 text-primary" />
@@ -157,21 +152,21 @@ export const Disciplines = () => {
                 >
                   {data.fields.map((field, index) => (
                     <AccordionItem key={index} value={`${category}-${index}`} className="border-b last:border-0">
-                      <AccordionTrigger className="px-6 py-4 hover:bg-secondary/30 transition-colors text-left">
+                      <AccordionTrigger className="px-6 py-4 text-left transition-colors hover:bg-secondary/30">
                         <span className="font-semibold text-foreground">{field.field}</span>
                       </AccordionTrigger>
                       <AccordionContent className="px-6 pb-4">
-                        <div className="space-y-3 text-sm rounded-xl border border-primary/20 bg-primary/5 p-4">
+                        <div className="space-y-3 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm">
                           <div>
-                            <p className="font-semibold text-primary mb-1">What they do:</p>
+                            <p className="mb-1 font-semibold text-primary">What they do:</p>
                             <p className="text-muted-foreground">{field.description}</p>
                           </div>
-                          <div className="pt-2 border-top border-primary/10">
-                            <p className="font-semibold text-primary mb-1">Real-world application:</p>
+                          <div className="border-top border-primary/10 pt-2">
+                            <p className="mb-1 font-semibold text-primary">Real-world application:</p>
                             <p className="text-muted-foreground">{field.application}</p>
                           </div>
-                          <div className="pt-2 border-top border-primary/10">
-                            <p className="font-semibold text-primary mb-1">Future impact:</p>
+                          <div className="border-top border-primary/10 pt-2">
+                            <p className="mb-1 font-semibold text-primary">Future impact:</p>
                             <p className="text-muted-foreground">{field.futureImpact}</p>
                           </div>
                         </div>
@@ -187,3 +182,4 @@ export const Disciplines = () => {
     </section>
   );
 };
+
