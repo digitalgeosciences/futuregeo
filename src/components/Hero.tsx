@@ -58,8 +58,8 @@ export const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="animate-fade-in">
-          <h1 className="font-future text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-foreground tracking-[0.18em] uppercase">
-            Geoscience for the Future
+          <h1 className="font-future text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-foreground tracking-[0.12em]">
+            Geosciences for the Future
           </h1>
           <p className="font-future text-lg md:text-xl mb-10 max-w-3xl mx-auto text-muted-foreground leading-relaxed tracking-wide">
             Geoscientists play a crucial role in addressing society's future challenges through the United Nations Sustainable Development Goals
@@ -67,7 +67,7 @@ export const Hero = () => {
           <Button
             onClick={scrollToContent}
             size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 text-lg px-8 py-6"
+            className="font-future tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 text-lg px-8 py-6"
           >
             Explore FutureGeo
             <ArrowDown className="ml-2 h-6 w-6 animate-bounce" />
