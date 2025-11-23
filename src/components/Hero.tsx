@@ -69,7 +69,7 @@ export const Hero = () => {
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 text-lg px-8 py-6"
           >
-            Explore the Future
+            Explore FutureGeo
             <ArrowDown className="ml-2 h-6 w-6 animate-bounce" />
           </Button>
         </div>

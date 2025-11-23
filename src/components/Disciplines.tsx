@@ -33,13 +33,14 @@ export const Disciplines = () => {
   const collapseTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
 
   useEffect(() => {
-    fetch("/data/geoscience-specializations.csv", { cache: "no-store" })
+    const baseUrl = import.meta.env.BASE_URL.replace(/\/+$/, "");
+
+    fetch(`${baseUrl}/data/geoscience-specializations.csv`, { cache: "no-store" })
       .then((response) => response.text())
       .then((csvText) => {
         Papa.parse<DisciplineField>(csvText, {
           header: true,
           complete: (results) => {
-            // Group by category
             const grouped: GroupedDisciplines = {};
             results.data.forEach((row) => {
               if (row.category && row.field) {
@@ -113,11 +114,9 @@ export const Disciplines = () => {
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Geoscience Specializations
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Geoscience Specializations</h2>
           <p className="text-muted-foreground text-sm mt-4">
-            💡 Click any field to explore how it contributes to solving future challenges
+            Click any field to explore how it contributes to solving future challenges
           </p>
         </div>
 
@@ -127,9 +126,7 @@ export const Disciplines = () => {
               <div className="p-6 border-b bg-primary/5">
                 <div className="flex items-center gap-2">
                   <Sparkles className="h-6 w-6 text-primary" />
-                  <h3 className="text-2xl font-bold text-foreground">
-                    {category}
-                  </h3>
+                  <h3 className="text-2xl font-bold text-foreground">{category}</h3>
                 </div>
               </div>
 
@@ -151,11 +148,11 @@ export const Disciplines = () => {
                           <p className="font-semibold text-primary mb-1">What they do:</p>
                           <p className="text-muted-foreground">{field.description}</p>
                         </div>
-                        <div className="pt-2 border-t border-primary/10">
+                        <div className="pt-2 border-top border-primary/10">
                           <p className="font-semibold text-primary mb-1">Real-world application:</p>
                           <p className="text-muted-foreground">{field.application}</p>
                         </div>
-                        <div className="pt-2 border-t border-primary/10">
+                        <div className="pt-2 border-top border-primary/10">
                           <p className="font-semibold text-primary mb-1">Future impact:</p>
                           <p className="text-muted-foreground">{field.futureImpact}</p>
                         </div>
@@ -167,8 +164,8 @@ export const Disciplines = () => {
             </Card>
           ))}
         </div>
-
       </div>
     </section>
   );
 };
+
