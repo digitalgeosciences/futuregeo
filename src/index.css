@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -88,6 +90,9 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  .font-future {
+    font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
 
   /* Animation utilities */
   .animate-fade-in {

@@ -58,10 +58,10 @@ export const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="animate-fade-in">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-foreground tracking-tight">
+          <h1 className="font-future text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-foreground tracking-[0.18em] uppercase">
             Geoscience for the Future
           </h1>
-          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-muted-foreground leading-relaxed">
+          <p className="font-future text-lg md:text-xl mb-10 max-w-3xl mx-auto text-muted-foreground leading-relaxed tracking-wide">
             Geoscientists play a crucial role in addressing society's future challenges through the United Nations Sustainable Development Goals
           </p>
           <Button

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Papa from "papaparse";
-import { Sparkles } from "lucide-react";
+import { Sparkles, FlaskConical, Activity, BatteryCharging, CloudSun, Users, Cpu } from "lucide-react";
 
 import {
   Accordion,
@@ -25,6 +25,19 @@ interface GroupedDisciplines {
     color: string;
   };
 }
+
+type CategoryIcon = typeof Sparkles;
+
+const categoryIcons: Record<string, CategoryIcon> = {
+  "Fundamental Sciences": FlaskConical,
+  "Earth Dynamics & Hazards": Activity,
+  "Resources & Energy": BatteryCharging,
+  "Environmental & Climate": CloudSun,
+  "Applied & Society": Users,
+  "Emerging & Digital Fields": Cpu,
+};
+
+const getCategoryIcon = (category: string): CategoryIcon => categoryIcons[category] ?? Sparkles;
 
 export const Disciplines = () => {
   const [disciplines, setDisciplines] = useState<GroupedDisciplines>({});
@@ -121,51 +134,56 @@ export const Disciplines = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
-          {categories.map(([category, data]) => (
-            <Card key={category} className="border overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="p-6 border-b bg-primary/5">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="h-6 w-6 text-primary" />
-                  <h3 className="text-2xl font-bold text-foreground">{category}</h3>
-                </div>
-              </div>
+          {categories.map(([category, data]) => {
+            const Icon = getCategoryIcon(category);
 
-              <Accordion
-                type="single"
-                collapsible
-                className="w-full"
-                value={openFields[category] ?? ""}
-                onValueChange={(value) => handleAccordionChange(category, value)}
-              >
-                {data.fields.map((field, index) => (
-                  <AccordionItem key={index} value={`${category}-${index}`} className="border-b last:border-0">
-                    <AccordionTrigger className="px-6 py-4 hover:bg-secondary/30 transition-colors text-left">
-                      <span className="font-semibold text-foreground">{field.field}</span>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-4">
-                      <div className="space-y-3 text-sm rounded-xl border border-primary/20 bg-primary/5 p-4">
-                        <div>
-                          <p className="font-semibold text-primary mb-1">What they do:</p>
-                          <p className="text-muted-foreground">{field.description}</p>
+            return (
+              <Card key={category} className="border overflow-hidden hover:shadow-lg transition-all duration-300">
+                <div className="p-6 border-b bg-primary/5">
+                  <div className="flex items-center gap-3">
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground">{category}</h3>
+                  </div>
+                </div>
+
+                <Accordion
+                  type="single"
+                  collapsible
+                  className="w-full"
+                  value={openFields[category] ?? ""}
+                  onValueChange={(value) => handleAccordionChange(category, value)}
+                >
+                  {data.fields.map((field, index) => (
+                    <AccordionItem key={index} value={`${category}-${index}`} className="border-b last:border-0">
+                      <AccordionTrigger className="px-6 py-4 hover:bg-secondary/30 transition-colors text-left">
+                        <span className="font-semibold text-foreground">{field.field}</span>
+                      </AccordionTrigger>
+                      <AccordionContent className="px-6 pb-4">
+                        <div className="space-y-3 text-sm rounded-xl border border-primary/20 bg-primary/5 p-4">
+                          <div>
+                            <p className="font-semibold text-primary mb-1">What they do:</p>
+                            <p className="text-muted-foreground">{field.description}</p>
+                          </div>
+                          <div className="pt-2 border-top border-primary/10">
+                            <p className="font-semibold text-primary mb-1">Real-world application:</p>
+                            <p className="text-muted-foreground">{field.application}</p>
+                          </div>
+                          <div className="pt-2 border-top border-primary/10">
+                            <p className="font-semibold text-primary mb-1">Future impact:</p>
+                            <p className="text-muted-foreground">{field.futureImpact}</p>
+                          </div>
                         </div>
-                        <div className="pt-2 border-top border-primary/10">
-                          <p className="font-semibold text-primary mb-1">Real-world application:</p>
-                          <p className="text-muted-foreground">{field.application}</p>
-                        </div>
-                        <div className="pt-2 border-top border-primary/10">
-                          <p className="font-semibold text-primary mb-1">Future impact:</p>
-                          <p className="text-muted-foreground">{field.futureImpact}</p>
-                        </div>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </Card>
-          ))}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 };
-
