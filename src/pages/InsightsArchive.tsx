@@ -161,8 +161,8 @@ const InsightsArchive = () => {
               <Card className="hover-lift group flex h-full rounded-xl border border-border/80 bg-card/80 p-5 shadow-sm transition-all duration-300 hover:border-primary hover:shadow-lg">
                 <div className="flex w-full flex-col gap-4 md:flex-row md:items-stretch">
                   {post.image && (
-                    <div className="flex w-full justify-center md:w-40 md:shrink-0 md:justify-start">
-                      <div className="h-24 w-40 overflow-hidden rounded-lg bg-muted/60 md:h-full">
+                    <div className="flex w-full md:w-40 md:shrink-0 md:justify-start">
+                      <div className="w-full overflow-hidden rounded-lg bg-muted/60 aspect-[16/9] md:h-full md:w-40 md:aspect-auto">
                         <img
                           src={post.image}
                           alt={post.title}
