@@ -24,7 +24,7 @@ const Index = () => {
       <div className="sticky top-0 z-30 border-b bg-background/95 backdrop-blur">
         <div className="container mx-auto flex flex-wrap items-center gap-3 px-4 py-3 text-sm">
           <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary shadow-sm">
-            Explore FutureGeo
+            Go To ➔
           </span>
           <button
             type="button"
