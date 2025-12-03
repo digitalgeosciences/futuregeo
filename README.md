@@ -2,7 +2,7 @@
 
 An interactive single-page experience showing how geoscientists advance the UN Sustainable Development Goals, with insights, impact stories, and discipline highlights.
 
-- **Powered and maintained by Digital Geosciences** ([digitalgeosciences.com](https://digitalgeosciences.com))
+- **Powered and maintained by ([Digital Geosciences](https://digitalgeosciences.com))**
 - **Contact**: [info@digitalgeosciences.com](mailto:info@digitalgeosciences.com)
 - **FutureGeo Live**: https://digitalgeosciences.com/futuregeo
 
