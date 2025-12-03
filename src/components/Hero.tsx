@@ -29,7 +29,7 @@ export const Hero = ({ onExplore, onNavigateInsights, onNavigateImpact, onNaviga
     if (onExplore) {
       onExplore();
     } else {
-      scrollToId("geoscience-impact");
+      scrollToId("futuregeo-insights");
     }
   };
 
