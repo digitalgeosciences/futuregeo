@@ -2,10 +2,9 @@
 
 An interactive single-page experience showing how geoscientists advance the UN Sustainable Development Goals, with insights, impact stories, and discipline highlights.
 
-Powered and maintained by Digital Geosciences (digitalgeosciences.com)
-Repo: https://github.com/digitalgeosciences/futuregeo.git
-Contact: info@digitalgeosciences.com
-FutureGeo Live: digitalgeosciences.com/futuregeo
+- **Powered and maintained by Digital Geosciences** ([digitalgeosciences.com](https://digitalgeosciences.com))
+- **Contact**: [info@digitalgeosciences.com](mailto:info@digitalgeosciences.com)
+- **FutureGeo Live**: https://digitalgeosciences.com/futuregeo
 
 ## Prerequisites
 
@@ -68,3 +67,4 @@ npm run build
 ```
 
 Upload the `dist` contents to your static hosting provider.
+
