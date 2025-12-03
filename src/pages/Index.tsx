@@ -17,42 +17,66 @@ const Index = () => {
     scrollToSection("geoscience-impact");
   }, [scrollToSection]);
 
+  const handleInsights = useCallback(() => {
+    scrollToSection("futuregeo-insights");
+  }, [scrollToSection]);
+
+  const handleImpact = useCallback(() => {
+    scrollToSection("geoscience-impact");
+  }, [scrollToSection]);
+
+  const handleGeosciences = useCallback(() => {
+    scrollToSection("geoscience-specializations");
+  }, [scrollToSection]);
+
   return (
     <div className="min-h-screen space-y-12">
-      <Hero onExplore={handleExplore} />
+      <Hero
+        onExplore={handleExplore}
+        onNavigateInsights={handleInsights}
+        onNavigateImpact={handleImpact}
+        onNavigateGeosciences={handleGeosciences}
+      />
 
       <div className="sticky top-0 z-30 border-b bg-background/95 backdrop-blur">
         <div className="container mx-auto flex flex-wrap items-center gap-3 px-4 py-3 text-sm">
-          <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary shadow-sm">
-            Go To ➔
-          </span>
+          <a
+            href="#hero"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection("hero");
+            }}
+            className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary shadow-sm transition-colors hover:bg-primary/20"
+          >
+            Home
+          </a>
           <button
             type="button"
-            onClick={() => scrollToSection("geoscience-impact")}
+            onClick={handleInsights}
+            className="rounded-full bg-primary/5 px-3 py-1 font-medium text-foreground transition-colors hover:bg-primary/10"
+          >
+            Insights
+          </button>
+          <button
+            type="button"
+            onClick={handleImpact}
             className="rounded-full bg-primary/5 px-3 py-1 font-medium text-foreground transition-colors hover:bg-primary/10"
           >
             Impact
           </button>
           <button
             type="button"
-            onClick={() => scrollToSection("geoscience-specializations")}
+            onClick={handleGeosciences}
             className="rounded-full bg-primary/5 px-3 py-1 font-medium text-foreground transition-colors hover:bg-primary/10"
           >
             Geosciences
           </button>
-          <button
-            type="button"
-            onClick={() => scrollToSection("futuregeo-insights")}
-            className="rounded-full bg-primary/5 px-3 py-1 font-medium text-foreground transition-colors hover:bg-primary/10"
-          >
-            Insights
-          </button>
         </div>
       </div>
 
+      <SDGSection />
       <GeoscienceImpact />
       <Disciplines />
-      <SDGSection />
       <Footer />
     </div>
   );
