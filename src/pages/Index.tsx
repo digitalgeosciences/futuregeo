@@ -14,7 +14,7 @@ const Index = () => {
   }, []);
 
   const handleExplore = useCallback(() => {
-    scrollToSection("geoscience-impact");
+    scrollToSection("futuregeo-insights");
   }, [scrollToSection]);
 
   const handleInsights = useCallback(() => {
