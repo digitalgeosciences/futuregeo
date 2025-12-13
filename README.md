@@ -68,3 +68,8 @@ npm run build
 
 Upload the `dist` contents to your static hosting provider.
 
+## Citation
+```
+Alqubalee, A. (2025). FutureGeo (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.17915560
+```
+
