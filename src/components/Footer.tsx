@@ -17,7 +17,7 @@ export const Footer = () => {
             <p className="flex items-center gap-1.5">
               <Sparkles className="h-3 w-3 text-primary" />
               <span>
-                Powered and maintained by{" "}
+                Developed by{" "}
                 <a
                   href="https://digitalgeosciences.com/"
                   target="_blank"
