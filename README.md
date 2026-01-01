@@ -1,4 +1,5 @@
 ﻿# FutureGeo - Geoscience & the SDGs
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17915560.svg)](https://doi.org/10.5281/zenodo.17915560) [![License](https://img.shields.io/github/license/digitalgeosciences/futuregeo)](LICENSE) ![Release](https://img.shields.io/github/v/release/digitalgeosciences/futuregeo)
 
 An interactive single-page experience showing how geoscientists advance the UN Sustainable Development Goals, with insights, impact stories, and discipline highlights.
 
