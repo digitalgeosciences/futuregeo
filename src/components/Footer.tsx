@@ -13,7 +13,7 @@ export const Footer = () => {
               Highlighting the vital role of geoscientists in achieving the United Nations Sustainable Development Goals.
             </p>
           </div>
-          <div className="space-y-1 text-xs text-muted-foreground">
+          <div className="space-y-1 text-xs text-muted-foreground text-left md:text-right">
             <p className="flex items-center gap-1.5">
               <Sparkles className="h-3 w-3 text-primary" />
               <span>
@@ -31,6 +31,10 @@ export const Footer = () => {
             <p className="flex items-center gap-1.5">
               <Mail className="h-3 w-3 text-primary" />
               <span>Contact: info@digitalgeosciences.com</span>
+            </p>
+            <p className="flex items-center gap-1.5 text-muted-foreground text-xs">
+              <span className="inline-block h-3 w-3" aria-hidden="true" />
+              <span>FutureGeo v0.1.1</span>
             </p>
           </div>
         </div>
