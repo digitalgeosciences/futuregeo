@@ -88,14 +88,6 @@ export const Hero = ({ onExplore, onNavigateInsights, onNavigateImpact, onNaviga
             />
           ))}
         </div>
-
-        <div className="absolute bottom-[-15%] left-1/2 w-[140%] h-[55vh] -translate-x-1/2 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(15,76,92,0.4),transparent_65%)] opacity-80 blur-[40px]"></div>
-          <div
-            className="absolute inset-0 bg-[linear-gradient(180deg,rgba(93,63,29,0.95)0%,rgba(125,84,35,0.9)30%,rgba(36,64,96,0.85)70%,rgba(11,32,52,0.9)100%)]"
-            style={{ clipPath: "polygon(0% 70%, 15% 60%, 30% 68%, 45% 58%, 60% 66%, 75% 57%, 90% 65%, 100% 60%, 100% 100%, 0% 100%)" }}
-          ></div>
-        </div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10 text-center">

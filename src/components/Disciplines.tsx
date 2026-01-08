@@ -34,6 +34,12 @@ const categoryIcons: Record<string, CategoryIcon> = {
 
 const getCategoryIcon = (category: string): CategoryIcon => categoryIcons[category] ?? Sparkles;
 
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
 export const Disciplines = () => {
   const [disciplines, setDisciplines] = useState<GroupedDisciplines>({});
   const [loading, setLoading] = useState(true);
@@ -106,6 +112,19 @@ export const Disciplines = () => {
     }
   };
 
+  useEffect(() => {
+    if (loading) return;
+    const hash = window.location.hash.replace(/^#/, "");
+    if (!hash) return;
+
+    for (const [category, data] of Object.entries(disciplines)) {
+      if (data.fields.some((field) => slugify(`${category}-${field.field}`) === hash)) {
+        setOpenFields({ [category]: hash });
+        break;
+      }
+    }
+  }, [loading, disciplines]);
+
   if (loading) {
     return (
       <section id="geoscience-specializations" className="py-16">
@@ -148,31 +167,39 @@ export const Disciplines = () => {
                   collapsible
                   className="w-full"
                   value={openFields[category] ?? ""}
-                  onValueChange={(value) => handleAccordionChange(category, value)}
+                  onValueChange={(value) => {
+                    handleAccordionChange(category, value);
+                    const base = `${window.location.pathname}${window.location.search}`;
+                    window.history.replaceState(null, "", value ? `${base}#${value}` : base);
+                  }}
                 >
-                  {data.fields.map((field, index) => (
-                    <AccordionItem key={index} value={`${category}-${index}`} className="border-b last:border-0">
-                      <AccordionTrigger className="px-6 py-4 text-left transition-colors hover:bg-secondary/30">
-                        <span className="font-semibold text-foreground">{field.field}</span>
-                      </AccordionTrigger>
-                      <AccordionContent className="px-6 pb-4">
-                        <div className="space-y-3 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm">
-                          <div>
-                            <p className="mb-1 font-semibold text-primary">What they do:</p>
-                            <p className="text-muted-foreground">{field.description}</p>
+                  {data.fields.map((field) => {
+                    const slug = slugify(`${category}-${field.field}`);
+
+                    return (
+                      <AccordionItem key={slug} value={slug} id={slug} className="border-b last:border-0">
+                        <AccordionTrigger className="px-6 py-4 text-left transition-colors hover:bg-secondary/30">
+                          <span className="font-semibold text-foreground">{field.field}</span>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-6 pb-4">
+                          <div className="space-y-3 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm">
+                            <div>
+                              <p className="mb-1 font-semibold text-primary">What they do:</p>
+                              <p className="text-muted-foreground">{field.description}</p>
+                            </div>
+                            <div className="border-top border-primary/10 pt-2">
+                              <p className="mb-1 font-semibold text-primary">Real-world application:</p>
+                              <p className="text-muted-foreground">{field.application}</p>
+                            </div>
+                            <div className="border-top border-primary/10 pt-2">
+                              <p className="mb-1 font-semibold text-primary">Future impact:</p>
+                              <p className="text-muted-foreground">{field.futureImpact}</p>
+                            </div>
                           </div>
-                          <div className="border-top border-primary/10 pt-2">
-                            <p className="mb-1 font-semibold text-primary">Real-world application:</p>
-                            <p className="text-muted-foreground">{field.application}</p>
-                          </div>
-                          <div className="border-top border-primary/10 pt-2">
-                            <p className="mb-1 font-semibold text-primary">Future impact:</p>
-                            <p className="text-muted-foreground">{field.futureImpact}</p>
-                          </div>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
+                        </AccordionContent>
+                      </AccordionItem>
+                    );
+                  })}
                 </Accordion>
               </Card>
             );
@@ -182,4 +209,3 @@ export const Disciplines = () => {
     </section>
   );
 };
-
